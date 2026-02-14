@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+
+<title>Creative Design Expertise</title>
+<style>
+/* ---- SOCIAL ICONS ---- */
+.social-icons-container {
+  position: fixed;
+  left: 60px;
+  top: 30%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding-bottom: 20px;
+  z-index: 9999; 
+}
+.social-icons-container a {
+  color: #ffffff;
+  font-size: 24px;
+  transition: all 0.3s ease;
+}
+.social-icons-container a:hover {
+  color: #00f;
+  text-shadow: 0 0 5px #00f,0 0 10px #00f,0 0 15px #00f,0 0 20px #00f,0 0 30px #00f,0 0 40px #00f,0 0 50px #00f;
+}
+
+/* ---- BODY ---- */
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(to bottom, #002147, #003366);
+  color: white;
+}
+
+/* ---- HEADER ---- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 0px;
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.logo img {
+  width: 190px;
+  height: auto;
+}
+
+.nav-links {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.nav-links a.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.nav-links a:hover {
+  color: #0ff;
+  text-shadow: 0 0 10px #0ff,0 0 20px #0ff,0 0 40px #0ff;
+}
+
+/* ---- LIST ---- */
+.list-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.list-button {
+  padding: 10px 20px;
+  background: #002147;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.list-button:hover {
+  background: #66b3ff;
+}
+
+.list-content {
+  display: none;
+  position: absolute;
+  top: 80px;
+  right: 30px;
+  background: #1f2a44;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 300px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.list-content p {
+  margin: 10px 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.list-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list-content ul li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #ffffff;
+  border-bottom: 1px solid #444;
+}
+
+.list-content ul li:last-child {
+  border-bottom: none;
+}
+
+.list-content a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.list-content a:hover {
+  color: #66b3ff;
+}
+
+.social-icons {
+  display: flex;
+  gap: 20px;
+  margin-top: 15px;
+  border-top: 1px solid #444;
+  padding-top: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-icons a {
+  color: #ffffff;
+  font-size: 20px;
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #00f;
+  text-shadow: 0 0 5px #00f,0 0 10px #00f,0 0 15px #00f;
+}
+
+.social-icons .separator {
+  height: 30px;
+  width: 1px;
+  background-color: #444;
+}
+
+/* ---- MAIN CONTENT ---- */
+.bars-container {
+  padding: 50px 80px;
+}
+
+.top-container h1,
+.top-container p {
+  padding-left: 0;
+}
+
+.adobe-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.adobe-line {
+  display: inline-block;
+  width: 50px;
+  height: 2px;
+  background-color: #ffff;
+  margin-right: 10px;
+}
+
+.adobe-experience {
+  font-size: 1.5rem;
+  color: #ffffff;
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.bar:nth-child(odd) {
+  flex-direction: row-reverse;
+}
+
+.bar-fill {
+  background: #265A99;
+  height: 60px;
+  width: 45%;
+  position: relative;
+  border-radius: 30px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.bar-fill:hover {
+  transform: scale(1.05);
+}
+
+.bar-fill span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: #153F73;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px black;
+  border-radius: 25px;
+}
+
+.percentage-box {
+  width: 60px;
+  height: 40px;
+  background: #265A99;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.percentage-box:hover {
+  background: white;
+  transform: scale(1.1);
+  color: #003366;
+}
+
+/* ---- FOOTER ---- */
+footer {
+  background-color: #1C325B;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 100px;
+}
+
+footer p {
+  font-size: 0.6rem;
+}
+
+footer a {
+  text-decoration: none;
+  color: #2381d9;
+  font-weight: bold;
+}
+
+footer a:hover {
+  color: #1F509A;
+}
+
+/* ---- RESPONSIVE MOBILE LIKE PROJECTS ---- */
+@media (max-width: 900px) {
+  .bars-container {
+    padding: 20px;
+  }
+
+  .bar {
+    flex-direction: column !important;
+    align-items: flex-start;
+  }
+
+  .bar-fill {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .percentage-box {
+    width: 100%;
+    justify-content: flex-start;
+    padding-left: 10px;
+    font-size: 0.9rem;
+  }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="social-icons-container">
+    <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+    <a href="https://www.behance.net/qusaijaber3" target="_blank"><i class="fab fa-behance"></i></a>
+  </div>
+
+  <div class="logo-container">
+    <div class="logo">
+      <img src="https://image2url.com/r2/default/images/1770457293951-44c94a01-df0f-46b2-bf70-102efba329e5.png" alt="Logo">
+    </div>
+  </div>
+
+  <nav>
+    <div class="nav-links">
+      <a href="https://jaber2306.github.io/Qusaihome1/" target="_blank">Home</a>
+      <a href="https://jaber2306.github.io/usaiprocess1/" target="_blank">Process</a>
+      <a href="https://jaber2306.github.io/Qusaiexper/" target="_blank">Experience</a>
+    </div>
+  </nav>
+
+  <div class="list-container">
+    <button class="list-button" onclick="toggleList()">
+      <i class="fas fa-list"></i>
+    </button>
+    <div id="listItems" class="list-content">
+      <p>Contact Info</p>
+      <ul>
+        <li><i class="fas fa-phone-alt"></i><a href="tel:+962788091144">+962788091144</a></li>
+        <li><i class="fas fa-map-marker-alt"></i><a href="https://www.google.com/maps" target="_blank"> Jordan, Amman city </a></li>
+        <li><i class="fas fa-envelope"></i><a href="mailto:a.jaber.qj@gmail.com">a.jaber.qj@gmail.com</a></li>
+      </ul>
+      <div class="social-icons">
+        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+        <div class="separator"></div>
+        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+        <div class="separator"></div>
+        <a href="https://www.behance.net/qusaijaber3" target="_blank"><i class="fab fa-behance"></i></a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="bars-container">
+  <div class="top-container">
+    <div class="adobe-container">
+      <div class="adobe-line"></div>
+      <span class="adobe-experience">Experience in Adobe Software Tools</span>
+    </div>
+    <h1 class="typewriter">Creative Design Expertise</h1>
+    <p>Expert in leveraging advanced design tools to create impactful visual identities, engaging digital content, and high-quality print materials with a focus on creativity and attention to detail.</p>
+  </div>
+
+  <div class="bar">
+    <div class="percentage-box">95%</div>
+    <div class="bar-fill"><span style="width: 95%;">Adobe Photoshop</span></div>
+  </div>
+  <div class="bar">
+    <div class="percentage-box">97%</div>
+    <div class="bar-fill"><span style="width: 97%;">Adobe Illustrator</span></div>
+  </div>
+  <div class="bar">
+    <div class="percentage-box">92%</div>
+    <div class="bar-fill"><span style="width: 92%;">Adobe InDesign</span></div>
+  </div>
+  <div class="bar">
+    <div class="percentage-box">90%</div>
+    <div class="bar-fill"><span style="width: 90%;">Adobe Premiere Pro</span></div>
+  </div>
+</div>
+
+<footer>
+  <p>©️ 2025 Qusai Jaber. All rights reserved. | <a href="#">Privacy Policy</a></p>
+</footer>
+
+<script>
+function toggleList() {
+  const list = document.getElementById('listItems');
+  list.style.display = list.style.display === 'block' ? 'none' : 'block';
+}
+
+document.addEventListener('click', function (event) {
+  const list = document.getElementById('listItems');
+  const button = document.querySelector('.list-button');
+  if (list.style.display === 'block' && !list.contains(event.target) && event.target !== button) {
+    list.style.display = 'none';
+  }
+});
+
+window.addEventListener('load', function() {
+  const navLinks = document.querySelectorAll('.nav-links a');
+  navLinks.forEach(function(link, index) {
+    setTimeout(function() {
+      link.classList.add('show');
+    }, index * 200);
+  });
+});
+</script>
+</body>
+</html>
